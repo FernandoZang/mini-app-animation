@@ -1,0 +1,2 @@
+C:/Users/kauan/desktop/mini-app-animation/android/app/.cxx/Debug/2e3a155l/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/Users/kauan/desktop/mini-app-animation/android/app/.cxx/Debug/2e3a155l/armeabi-v7a/CMakeFiles/rebuild_cache.dir
