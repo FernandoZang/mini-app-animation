@@ -23,54 +23,54 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
-
   final String title;
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateMixin{
+class _MyHomePageState extends State<MyHomePage> {
+  final List<Product> produtos = [];
 
-  var produtos = [];
+  @override
+  void initState() {
+    super.initState();
+    populateDB();
+  }
 
   @override
   Widget build(BuildContext context) {
-    populateDB();
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
       body: ListView.builder(
+        itemCount: produtos.length,
         itemBuilder: (context, index) {
-          if(index<produtos.length) {
-            Product product = produtos[index] as Product;
-            return ProductCard(
-              name: product.name, 
-              price: product.price, 
-              shotDescription: product.shotDescription,
-              asset: 'assets/images/camiseta_vermelha.webp',
-            );
-          }
-        }
-      )
+          final product = produtos[index];
+          return ProductCard(
+            name: product.name,
+            price: product.price,
+            shotDescription: product.shotDescription,
+            asset: 'assets/images/camiseta_vermelha.webp',
+            altAsset: 'assets/images/camiseta_preta.webp',
+          );
+        },
+      ),
     );
-
-
   }
 
-    void populateDB() {
-    produtos = [];
-    String sd = 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of';
-    produtos.add(Product('id1', 'Produto 1', 30.22, sd));
-    produtos.add(Product('id2', 'Produto 2', 20.22, sd));
-    produtos.add(Product('id3', 'Produto 3', 30.22, sd));
-    produtos.add(Product('id4', 'Produto 4', 21.22, sd));
-    produtos.add(Product('id5', 'Produto 5', 30.22, sd));
-    produtos.add(Product('id6', 'Produto 6', 50.22, sd));
-    produtos.add(Product('id7', 'Produto 7', 30.22, sd));
-
+  void populateDB() {
+    const sd =
+        'Camisa 100% algodão, de corte clássico, cor vermelha vibrante. '
+        'Ideal para uso casual em qualquer estação, confortável e durável.';
+    produtos.add(Product('id1', 'Camisa Vermelha', 30.22, sd));
+    produtos.add(Product('id2', 'Camisa Azul', 25.50, sd));
+    produtos.add(Product('id3', 'Camisa Preta', 28.75, sd));
+    produtos.add(Product('id4', 'Camisa Branca', 24.00, sd));
+    produtos.add(Product('id5', 'Camisa Verde', 27.30, sd));
+    produtos.add(Product('id6', 'Camisa Amarela', 29.99, sd));
+    produtos.add(Product('id7', 'Camisa Cinza', 26.80, sd));
   }
 }
