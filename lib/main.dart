@@ -47,7 +47,12 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
         itemBuilder: (context, index) {
           if(index<produtos.length) {
             Product product = produtos[index] as Product;
-            return ProductCard(name: product.name, price: product.price, shotDescription: product.shotDescription);
+            return ProductCard(
+              name: product.name, 
+              price: product.price, 
+              shotDescription: product.shotDescription,
+              asset: 'assets/images/camiseta_vermelha.webp',
+            );
           }
         }
       )
@@ -58,13 +63,14 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
 
     void populateDB() {
     produtos = [];
-    produtos.add(Product('id1', 'Produto 1', 30.22, 'short description'));
-    produtos.add(Product('id2', 'Produto 2', 20.22, 'short description'));
-    produtos.add(Product('id3', 'Produto 3', 30.22, 'short description'));
-    produtos.add(Product('id4', 'Produto 4', 21.22, 'short description'));
-    produtos.add(Product('id5', 'Produto 5', 30.22, 'short description'));
-    produtos.add(Product('id6', 'Produto 6', 50.22, 'short description'));
-    produtos.add(Product('id7', 'Produto 7', 30.22, 'short description'));
+    String sd = 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of';
+    produtos.add(Product('id1', 'Produto 1', 30.22, sd));
+    produtos.add(Product('id2', 'Produto 2', 20.22, sd));
+    produtos.add(Product('id3', 'Produto 3', 30.22, sd));
+    produtos.add(Product('id4', 'Produto 4', 21.22, sd));
+    produtos.add(Product('id5', 'Produto 5', 30.22, sd));
+    produtos.add(Product('id6', 'Produto 6', 50.22, sd));
+    produtos.add(Product('id7', 'Produto 7', 30.22, sd));
 
   }
 }
