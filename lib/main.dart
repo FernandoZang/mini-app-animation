@@ -65,13 +65,6 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
     produtos.add(Product('id5', 'Produto 5', 30.22, 'short description'));
     produtos.add(Product('id6', 'Produto 6', 50.22, 'short description'));
     produtos.add(Product('id7', 'Produto 7', 30.22, 'short description'));
-    produtos_enlarged.add(false);
-    produtos_enlarged.add(false);
-    produtos_enlarged.add(false);
-    produtos_enlarged.add(false);
-    produtos_enlarged.add(false);
-    produtos_enlarged.add(false);
-    produtos_enlarged.add(false);
 
   }
 }
