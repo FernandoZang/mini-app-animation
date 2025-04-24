@@ -64,5 +64,3 @@ Coloque as imagens em `assets/images/`.
 - **ScaleTransition**: fornece controle fino sobre animações explícitas para feedback de toque.
 - **AnimatedBuilder**: base leve para construir loaders customizados com controle total sobre o `AnimationController`.
 
-Explore o código, ajuste durações e estilos para se familiarizar com as APIs de animação do Flutter!
-
