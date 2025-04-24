@@ -58,7 +58,9 @@ class _ProductCardState extends State<ProductCard>
   Widget build(BuildContext context) {
     return Card(
       margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-      child: AnimatedContainer(
+      child: GestureDetector(
+        onTap: () => setState(() => _expanded = !_expanded),
+        child: AnimatedContainer(
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOut,
         padding: EdgeInsets.all(_expanded ? 16 : 8),
@@ -69,7 +71,6 @@ class _ProductCardState extends State<ProductCard>
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             GestureDetector(
-              onTap: () => setState(() => _expanded = !_expanded),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -157,6 +158,7 @@ class _ProductCardState extends State<ProductCard>
             ],
           ],
         ),
+      ) 
       ),
     );
   }
