@@ -32,9 +32,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                 children: [
                   Image.asset(
                     widget.asset,
-                    width: double.infinity,
-                    height: 200,
-                    fit: BoxFit.cover,
+                    fit: BoxFit.fitWidth,
                   ),
                   const SizedBox(height: 16),
                   Text(
