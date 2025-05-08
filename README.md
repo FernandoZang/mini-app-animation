@@ -64,3 +64,7 @@ Coloque as imagens em `assets/images/`.
 - **ScaleTransition**: fornece controle fino sobre animações explícitas para feedback de toque.
 - **AnimatedBuilder**: base leve para construir loaders customizados com controle total sobre o `AnimationController`.
 
+
+## Integrantes
+   - Fernando Zang
+   - Kauan Lopes
