@@ -2,11 +2,11 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - name: Setup Flutter
+  - name: Flutter Setup
     init: |
       flutter --version
       flutter doctor
-    command: echo "Flutter is ready!"
+    command: echo "Flutter environment ready!"
 
 vscode:
   extensions:
