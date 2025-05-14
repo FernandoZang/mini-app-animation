@@ -1,18 +1,21 @@
 FROM gitpod/workspace-full
 
-# Install Flutter 3.5.4
-ENV FLUTTER_VERSION=3.5.4
+# Install system dependencies
+RUN sudo apt-get update && sudo apt-get install -y \
+    curl unzip xz-utils zip libglu1-mesa openjdk-17-jdk \
+    clang cmake ninja-build pkg-config libgtk-3-dev
 
-RUN sudo apt-get update && sudo apt-get install -y curl unzip xz-utils git clang cmake ninja-build pkg-config libgtk-3-dev
+# Set environment variables
+ENV FLUTTER_HOME=/home/gitpod/flutter
+ENV PATH="${FLUTTER_HOME}/bin:${FLUTTER_HOME}/bin/cache/dart-sdk/bin:${PATH}"
 
-# Install Flutter SDK
-RUN git clone https://github.com/flutter/flutter.git /home/gitpod/flutter \
-    && cd /home/gitpod/flutter \
-    && git checkout $FLUTTER_VERSION \
-    && /home/gitpod/flutter/bin/flutter precache
+# Install Flutter (stable channel, version 3.24.5)
+RUN git clone https://github.com/flutter/flutter.git ${FLUTTER_HOME} \
+    && cd ${FLUTTER_HOME} \
+    && git checkout stable \
+    && git pull \
+    && git reset --hard 3.24.5 \
+    && flutter doctor
 
-# Add Flutter to PATH
-ENV PATH="/home/gitpod/flutter/bin:/home/gitpod/flutter/bin/cache/dart-sdk/bin:${PATH}"
-
-# Accept Android licenses
-RUN yes | /home/gitpod/flutter/bin/flutter doctor --android-licenses || true
+# Pre-cache Flutter artifacts
+RUN flutter precache
