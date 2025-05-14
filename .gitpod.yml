@@ -1,6 +1,13 @@
 image:
   file: .gitpod.Dockerfile
 tasks:
+  - name: Setup Flutter
+    init: |
+      git clone https://github.com/flutter/flutter.git -b stable
+      echo 'export PATH="$PATH:/workspace/flutter/bin"' >> ~/.bashrc
+      source ~/.bashrc
+      flutter doctor
+      
   - name: Android Appetize info
     # Gitpod is not able to run emulators within a worspace at this stage as
     # Google Kubernetes Engine does not support Nested Virtualization.
