@@ -3,7 +3,7 @@ image:
 tasks:
   - name: Setup Flutter
     init: |
-      git clone https://github.com/flutter/flutter.git -b stable
+      git clone https://github.com/flutter/flutter.git -b 3.5.4
       echo 'export PATH="$PATH:/workspace/flutter/bin"' >> ~/.bashrc
       source ~/.bashrc
       flutter doctor
