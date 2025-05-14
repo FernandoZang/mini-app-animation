@@ -29,7 +29,7 @@ RUN install-packages openjdk-11-jdk -y \
 
 # Insall flutter and dependencies
 USER gitpod
-RUN wget -q "https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_${FLUTTER_VERSION}.tar.xz" -O - \
+RUN wget -q "https://storage.googleapis.com/flutter_infra_release/releases/${FLUTTER_VERSION}/linux/flutter_linux_${FLUTTER_VERSION}.tar.xz" -O - \
     | tar xpJ -C "$HOME" \
     && _file_name="commandlinetools-linux-8092744_latest.zip" && wget "https://dl.google.com/android/repository/$_file_name" \
     && unzip "$_file_name" -d $ANDROID_HOME \
